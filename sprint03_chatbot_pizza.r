@@ -1,34 +1,24 @@
-# chatbot (rule-based)
-# ordering pizza
-
-print("Welcome to our app!")
-print("Hello There!")
-
-# question 01
-print("What's your name? ")
-user_name = readLines("stdin", n=1) ## n=1 : รับ input 1 บรรทัด
-print(paste("Hi", user_name))
-
-# question 02
-print("What do you want to order today?")
-print("1.pizza, 2.spaghetti")
-action = readLines("stdin", n=1)
-print("Do you want to add your order?")
-ask = readLines("stdin", n=1)
-if( ask == "Yes"){
-  print("What menu do you want to add to your order?")
-  action2 = readLines("stdin", n=1)
-  print("You ordered pizza and spaghetti.")
-  print("What pizza do you want to order?")
-  print("1.Seafood, 2.Meat Deluxe, 3.Hawaiian")
-  pizza = readLines("stdin", n=1)
-  print("What spaghetti do you want to order?")
-  print("1.Bolognese, 2.Carbonara")
-  spaghetti = readLines("stdin", n=1)
-} else {
-  if(action ==1) {
-    print("You ordered pizza.")
-  } else {
-    print("You ordered spaghetti.")
-  }
+# Define a function to process the customer's order
+process_order <- function(size, toppings) {
+  # Print the size and toppings of the pizza
+  message <- paste("Your order has been placed for a", size, "pizza with", toppings, "toppings.")
+  print(message)
 }
+
+# Define a function to handle customer input
+customer_input <- function() {
+  # Prompt the customer for the size of the pizza
+  print("What size pizza would you like? (small/medium/large)")
+  size <- readLines("stdin", n=1)
+  
+  # Prompt the customer for the toppings of the pizza
+  print("What toppings would you like on your pizza?")
+  toppings <- readLines("stdin", n=1)
+  
+  # Process the order
+  process_order(size, toppings)
+}
+
+# Start the chatbot
+print("Welcome to the pizza ordering chatbot!")
+customer_input()
